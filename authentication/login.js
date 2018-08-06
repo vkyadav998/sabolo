@@ -9,7 +9,7 @@ require('./schema');
 let  USER = mongoose.model('USER_MODEL');
 
 router.post('/check_login', function(req, res)  {
-    let check = {"mobile":req.body.mobile, "PASSWORD":req.body.PASSWORD};
+    let check = {"mobile":req.body.mobile, "PASSWORD":req.body.password};
 
     USER.findOne(check, function(err, docs){
         if(err){
