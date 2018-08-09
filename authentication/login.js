@@ -4,12 +4,13 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-require('./schema');
+require('../schema/users');
 
 let  USER = mongoose.model('USER_MODEL');
 
 router.post('/check_login', function(req, res)  {
-    let check = {"mobile":req.body.mobile, "PASSWORD":req.body.PASSWORD};
+    console.log(req);
+    let check = {"mobile":req.body.mobile, "password":req.body.password};
 
     USER.findOne(check, function(err, docs){
         if(err){
